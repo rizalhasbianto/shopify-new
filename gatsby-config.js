@@ -9,6 +9,16 @@ module.exports = {
     title: `Gatsby Shopify Starter`,
     description: `Kick off your next, ecommerce experience with this Gatsby starter. This starter ships with credentials to a shopify demo store so you can try it out immediately.`,
     author: `@alexanderhorl`,
+    menuLinks:[
+      {
+         name:'home',
+         link:'/'
+      },
+      {
+         name:'page2',
+         link:'/page-2'
+      }
+    ]
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,600,700,800&display=swap');
+body {
+font-size: 16px;
+font-family: "Work Sans",sans-serif;
+font-style: normal;
+font-weight: 400;
+color: #3d4246;
+}
+.css-rdinti {
+height: 80px;
+}
+.css-11uhv31 {
+height: 80px;
+    padding: 0;
+}
+.css-5ej9tq svg {
+width: 23px;
+    height: 23px;
+}
+.right-top {
+display: block;
+}
+.right-top .icon-search {
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    position: relative;
+    top: 5px;
+    margin-right: 20px;
+}
+/* FOOTER */
+.footer-top {
+display: block;
+    overflow: hidden;
+    margin-top: 100px;
+}
+.footer-top h3 {
+font-size: 16px;
+    font-family: "Work Sans",sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: #3d4246;
+    line-height: 1.5;
+}
+.grid-one-half {
+float: left;
+    width: 50%;
+}
+.footer-top a {
+color: #3d4246;
+text-decoration: none;
+}
+.subscribe .name {
+    width: calc( 100% - 120px );
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 2px 0 0 2px;
+    text-align: left;
+    border: 1px solid #949494;
+    font-size: 16px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.subscribe .submit {
+font-size: 16px;
+    text-transform: uppercase;
+    padding: 15px 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    box-sizing: border-box;
+    width: 120px;
+    color: white;
+    background: black;
+    border: 1px solid black;
+    }
+    .footer-bottom {
+    margin-top: 50px;
+    border-top: 1px solid #e6e6e6;
+    padding-top: 20px;
+}
+.footer-sosmed {
+display: inline-block;
+    width: 300px;
+}
+.footer-sosmed svg {
+width: 23px;
+display:inline-block;
+margin-right:20px;
+}
+.copy {
+display: block;
+    margin-top: 20px;
+    font-size:14px;
+}
+.payment {
+float: right;
+}
+.payment-icon {
+    display: inline-block;
+    list-style: none;
+    margin-left: 10px;
+}
+.payment-icons {
+margin:0;
+}

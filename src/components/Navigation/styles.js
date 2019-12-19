@@ -3,18 +3,18 @@ import { Link } from 'gatsby'
 
 import { breakpoints } from '../../utils/styles'
 
-export const Wrapper = styled.div`
-  background: rebeccapurple;
+export const Wrappers = styled.div`
+  background: white;
   margin-bottom: 1.45rem;
+  border-bottom:1px solid #e8e9eb;
 `
 
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 1.45rem;
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 1100px;
 `
 
 export const MenuLink = styled(Link)`
@@ -22,6 +22,9 @@ export const MenuLink = styled(Link)`
   text-decoration: none;
   font-size: 2rem;
   font-weight: bold;
+  font-weight: bold;
+    position: relative;
+    top: 6px;
 
   @media (max-width: ${breakpoints.s}px){
     font-size: 1.4rem
@@ -37,6 +40,20 @@ export const CartCounter = styled.span`
   float: right;
   margin: -10px;
   z-index: 20;
+`
+
+export const MenuWrap = styled.div`
+  background: white;
+  color:black;
+  text-transform:uppercase;
+`
+
+export const Links = styled.a`
+  background: white;
+  margin-bottom: 1.45rem;
+  text-decoartion:none;
+  color:#3d4246;
+  
 `
 
     

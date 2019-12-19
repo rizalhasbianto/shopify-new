@@ -5,7 +5,7 @@ import { breakpoints } from '../../utils/styles'
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
 
   @media (max-width: ${breakpoints.s}px){
@@ -20,16 +20,17 @@ export const Product = styled.div`
 `
 
 export const Title = styled.span`
-  font-weight: 300;
-  font-size: 1.2rem;
-  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: left;
 `
 
 export const PriceTag = styled.span`
-  font-weight: 300;
-  font-size: 1rem;
-  text-align: center;
-  margin-top: 15px;
+  font-weight: 600;
+  font-size: 1em;
+  text-align: left;
+  margin-top: 5px;
+  color:#69727b
 
   :before {
     content: '- '
