@@ -83,3 +83,4 @@ I'll happily merge any pull request to improve the starter. 🙂
 - [X] Add image optimization using Gatsby sharp plugin.
 - [X] Convert ProductForm to function component.
 <!-- AUTO-GENERATED-CONTENT:END -->
+# donato5
