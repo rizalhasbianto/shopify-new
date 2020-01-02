@@ -11,6 +11,13 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+      allShopifyCollection {
+        edges {
+          node {
+            handle
+          }
+        }
+      }
     }
   `).then(result => {
     result.data.allShopifyProduct.edges.forEach(({ node }) => {
@@ -21,6 +28,16 @@ exports.createPages = ({ graphql, actions }) => {
           // Data passed to context is available
           // in page queries as GraphQL variables.
           handle: node.handle,
+        },
+      })
+    })
+    result.data.allShopifyCollection.edges.forEach(({ node }) => {
+      createPage({
+        path: `/collection/${node.handle}/`,
+        component: path.resolve(`./src/templates/ProductPage/collection.js`),
+        context: {
+         collection: node,
+         handle: node.handle,
         },
       })
     })
