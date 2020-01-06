@@ -1,11 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,600,700,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Roboto:300,400,700&display=swap');
 body {
-font-size: 16px;
-font-family: "Work Sans",sans-serif;
+font-size: 14px;
+font-family: 'Roboto', sans-serif;
 font-style: normal;
 font-weight: 400;
 color: #3d4246;
 }
+h1,h2,h3,h4,h5,h6 {
+font-family: 'Open Sans Condensed', sans-serif;
+font-weight: 700;
+}
+/* NAV */
 .css-rdinti {
 height: 80px;
 }
@@ -20,13 +25,40 @@ width: 23px;
 .right-top {
 display: block;
 }
-.right-top .icon-search {
-    display: inline-block;
-    width: 23px;
-    height: 23px;
+.right-top .login {
+display: inline-block;
     position: relative;
-    top: 5px;
+    top: -5px;
     margin-right: 20px;
+    color: white;
+}
+.main-menu ul {
+padding-left:10px;
+    margin: 0;
+}
+.right-top {
+ padding-right:20px;
+ }
+ .right-top .css-5ej9tq {
+ top:0;
+ font-size:auto;
+ }
+ .right-top svg {
+ fill:white;
+ }
+ .center_caption span {
+     color: white;
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    }
+    .logo {
+    text-align: center;
+}
+.logo img {
+width: 150px;
+    padding: 20px;
 }
 /* FOOTER */
 .footer-top {

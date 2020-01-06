@@ -12,9 +12,8 @@ export const Wrappers = styled.div`
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
   margin: 0 auto;
-  max-width: 1100px;
+  background:black;
 `
 
 export const MenuLink = styled(Link)`
@@ -49,10 +48,8 @@ export const MenuWrap = styled.div`
 `
 
 export const Links = styled.a`
-  background: white;
-  margin-bottom: 1.45rem;
-  text-decoartion:none;
-  color:#3d4246;
+  text-decoration:none;
+  color:#fff;
   
 `
 
