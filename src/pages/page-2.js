@@ -1,26 +1,42 @@
-import React from 'react'
+import React from "react"
 import { Link } from 'gatsby'
-import $ from 'jquery'; 
-
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 import SEO from '~/components/seo'
 
-const SecondPage = () => (
-  <>
-    <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
-    <div class="yourclass">
-    <div>your content test</div>
-    <div>your content</div>
-    <div>your content</div>
-  </div>
-    <script type="text/javascript">
-    $(document).ready(function(){
-      $('.yourclass').css('background','red')
-    })
-  </script>
-  </>
-)
+class SimpleSlider extends React.Component {
+  render() {
+    var settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+    return (
+      <Slider {...settings}>
+        <div>
+          <h3>1</h3>
+        </div>
+        <div>
+          <h3>2</h3>
+        </div>
+        <div>
+          <h3>3</h3>
+        </div>
+        <div>
+          <h3>4</h3>
+        </div>
+        <div>
+          <h3>5</h3>
+        </div>
+        <div>
+          <h3>6</h3>
+        </div>
+      </Slider>
+    );
+  }
+}
 
-export default SecondPage
+export default SimpleSlider

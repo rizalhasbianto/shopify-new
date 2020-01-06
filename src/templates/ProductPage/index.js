@@ -1,28 +1,44 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 import SEO from '~/components/seo'
 import ProductForm from '~/components/ProductForm'
 import {
   Img,
   Container,
-  TwoColumnGrid,
-  GridLeft,
-  GridRight,
 } from '~/utils/styles'
 import {
   ProductTitle,
-  ProductDescription
+  ProductDescription,
+  TwoColumnGrid,
+  GridLeft,
+  GridRight,
+  Price
 } from './styles'
-
+  
 const ProductPage = ({ data }) => {
   const product = data.shopifyProduct
+  const price = Intl.NumberFormat(undefined, {
+    currency: product.priceRange.minVariantPrice.currencyCode,
+    minimumFractionDigits: 2,
+    style: 'currency',
+  }).format(product.priceRange.minVariantPrice.amount)
+  var settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
   return (
-    <>
+    <> 
       <SEO title={product.title} description={product.description} />
       <Container>
         <TwoColumnGrid>
           <GridLeft>
+          <Slider {...settings}>
             {product.images.map(image => (
               <Img
                 fluid={image.localFile.childImageSharp.fluid}
@@ -30,12 +46,15 @@ const ProductPage = ({ data }) => {
                 alt={product.title}
               />
             ))}
+            </Slider>
           </GridLeft>
           <GridRight>
             <ProductTitle>{product.title}</ProductTitle>
+            <Price>{price}</Price>
             <ProductDescription
               dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
             />
+            
             <ProductForm product={product} />
           </GridRight>
         </TwoColumnGrid>
@@ -94,5 +113,4 @@ export const query = graphql`
     }
   }
 `
-
 export default ProductPage
