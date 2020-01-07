@@ -96,25 +96,26 @@ const ProductForm = ({ product }) => {
   return (
     <>
       {options.map(({ id, name, values }, index) => (
+      <div className={name}>
         <React.Fragment key={id}>
-          <label htmlFor={name}>{name} </label>
-          <select
-            name={name}
-            key={id}
-            onChange={event => handleOptionChange(index, event)}
-          >
             {values.map(value => (
-              <option
+            <label className={"productOption "+ value}>
+              <input 
+              type="radio" 
+              name={name}
                 value={value}
                 key={`${name}-${value}`}
                 disabled={checkDisabled(name, value)}
-              >
-                {value}
-              </option>
+                onChange={event => handleOptionChange(index, event)}
+                
+              />
+              {value}
+              </label>
             ))}
-          </select>
+            
           <br />
         </React.Fragment>
+        </div>
       ))}
       <label htmlFor="quantity">Quantity </label>
       <input

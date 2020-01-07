@@ -15,23 +15,27 @@ import {
   TwoColumnGrid,
   GridLeft,
   GridRight,
-  Price
+  Price,
+  Thumbnail
 } from './styles'
   
 const ProductPage = ({ data }) => {
   const product = data.shopifyProduct
+  
   const price = Intl.NumberFormat(undefined, {
     currency: product.priceRange.minVariantPrice.currencyCode,
     minimumFractionDigits: 2,
     style: 'currency',
-  }).format(product.priceRange.minVariantPrice.amount)
-  var settings = {
+  }).format(product.priceRange.minVariantPrice.amount);
+  
+  const settings = {
       dots: true,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1
     };
+    
   return (
     <> 
       <SEO title={product.title} description={product.description} />
@@ -47,6 +51,18 @@ const ProductPage = ({ data }) => {
               />
             ))}
             </Slider>
+            <Thumbnail>
+            {product.images.map(image => (
+            <div className="thumbnailWrap">
+              <Img
+                fluid={image.localFile.childImageSharp.fluid}
+                key={image.id}
+                alt={product.title}
+                onClick={e => this.slider.slickGoTo(1)}
+              />
+              </div>
+            ))}
+            </Thumbnail>
           </GridLeft>
           <GridRight>
             <ProductTitle>{product.title}</ProductTitle>

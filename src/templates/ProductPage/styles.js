@@ -36,3 +36,6 @@ export const GridRight = styled.div`
 export const Price = styled.span`
   font-size:20px;
 `
+export const Thumbnail = styled.div`
+  font-size:20px;
+`
