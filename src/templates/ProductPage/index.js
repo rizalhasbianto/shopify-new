@@ -35,14 +35,13 @@ const ProductPage = ({ data }) => {
       slidesToShow: 1,
       slidesToScroll: 1
     };
-    
   return (
     <> 
       <SEO title={product.title} description={product.description} />
       <Container>
         <TwoColumnGrid>
           <GridLeft>
-          <Slider {...settings}>
+          <Slider ref={slider => (Slider.slider = slider)} {...settings}>
             {product.images.map(image => (
               <Img
                 fluid={image.localFile.childImageSharp.fluid}
@@ -52,13 +51,12 @@ const ProductPage = ({ data }) => {
             ))}
             </Slider>
             <Thumbnail>
-            {product.images.map(image => (
-            <div className="thumbnailWrap">
+            {product.images.map((image, Index) => (
+            <div className="thumbnailWrap" onClick={e => Slider.slider.slickGoTo(Index)}>
               <Img
                 fluid={image.localFile.childImageSharp.fluid}
                 key={image.id}
                 alt={product.title}
-                onClick={e => this.slider.slickGoTo(1)}
               />
               </div>
             ))}
@@ -129,4 +127,5 @@ export const query = graphql`
     }
   }
 `
+
 export default ProductPage

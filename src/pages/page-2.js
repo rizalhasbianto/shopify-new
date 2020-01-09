@@ -4,7 +4,7 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import SEO from '~/components/seo'
-
+const test="test"
 export default class SlickGoToo extends React.Component {
 
   render() {
@@ -17,6 +17,7 @@ export default class SlickGoToo extends React.Component {
     };
     return (
       <div>
+      {test}
         <h2 onClick={e => this.slider.slickGoTo(1)}>Slick Go To</h2>
         <Slider ref={slider => (this.slider = slider)} {...settings}>
           <div>
