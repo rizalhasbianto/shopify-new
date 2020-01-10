@@ -2,9 +2,11 @@ import React, { useState, useContext, useEffect, useCallback } from 'react'
 import find from 'lodash/find'
 import isEqual from 'lodash/isEqual'
 import PropTypes from 'prop-types'
-
 import StoreContext from '~/context/StoreContext'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
+  
 const ProductForm = ({ product }) => {
   const {
     options,
@@ -42,7 +44,13 @@ const ProductForm = ({ product }) => {
 
   const handleQuantityChange = ({ target }) => {
     setQuantity(target.value)
+  }	
+  const handleQuantityMinus = ({ target }) => {
+    setQuantity(quantity - 1)
   }
+  const handleQuantityPlus = ({ target }) => {
+    setQuantity(quantity + 1)
+  }	
 
   const handleOptionChange = (optionIndex, { target }) => {
     const { value } = target
@@ -92,13 +100,13 @@ const ProductForm = ({ product }) => {
     minimumFractionDigits: 2,
     style: 'currency',
   }).format(variant.price)
-
   return (
     <>
       {options.map(({ id, name, values }, index) => (
-      <div className={name}>
+      <div className={"optionwrap "+ name}>
+      <span className="optionTitle">{name}</span>
         <React.Fragment key={id}>
-            {values.map(value => (
+            {values.map((value, Index) => (
             <label className={"productOption "+ value}>
               <input 
               type="radio" 
@@ -107,9 +115,10 @@ const ProductForm = ({ product }) => {
                 key={`${name}-${value}`}
                 disabled={checkDisabled(name, value)}
                 onChange={event => handleOptionChange(index, event)}
-                
+                defaultChecked={(Index == 0) ? true : false}
               />
               {value}
+              {(name == 'Color') ? <div class="colorBox"></div> : ''}
               </label>
             ))}
             
@@ -117,21 +126,28 @@ const ProductForm = ({ product }) => {
         </React.Fragment>
         </div>
       ))}
-      <label htmlFor="quantity">Quantity </label>
+      <label htmlFor="quantity" className="qty">QTY</label>
+      <br/>
+      <div className="qtyMinus">
+      <FontAwesomeIcon icon={faMinus} onClick={handleQuantityMinus}/>
+      </div>
       <input
         type="number"
         id="quantity"
         name="quantity"
         min="1"
-        step="1"
         onChange={handleQuantityChange}
         value={quantity}
       />
+      <div className="qtyPlus">
+      <FontAwesomeIcon icon={faPlus} onClick={handleQuantityPlus}/>
+      </div>
       <br />
       <button
         type="submit"
         disabled={!available || adding}
         onClick={handleAddToCart}
+        className="addToCart"
       >
         Add to Cart
       </button>

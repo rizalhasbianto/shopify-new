@@ -171,14 +171,82 @@ border: #e2e2e2 1px solid;
 .Color .productOption {
 color:transparent;
 }
-.Color .productOption.Black {
-background:black;
+.Color .productOption .colorBox {
+width: 26px;
+    height: 26px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border: #e2e2e2 1px solid;
 }
-.Color .productOption.White {
-background:white;
+.Color .productOption.Black .colorBox {
+    background: black;
+}
+.Color .productOption.White .colorBox {
+    background: white;
 }
 .thumbnailWrap {
 display:inline-block;
     width: 23%;
     margin: 0 1%;
+}
+.qtyMinus, .qtyPlus {
+background: #f2f2f2;
+    font-weight: 300;
+    position: relative;
+    cursor: pointer;
+    height: 44px;
+    display: inline-block;
+    width: 44px;
+    text-align: center;
+    line-height: 44px;
+    border: #e2e2e2 1px solid;
+}
+#quantity {
+height: 46px;
+    display: inline-block;
+    width: 68px;
+    text-align: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border-top: #e2e2e2 1px solid;
+    border-bottom: #e2e2e2 1px solid;
+    border-left: 0;
+    border-right: 0;
+    position: relative;
+    top: -1px;
+        -webkit-appearance: none!important;
+    }
+    input::-webkit-inner-spin-button {
+    display:none;
+    }
+    .addToCart {
+    width: 400px;
+    background: black;
+    color: white;
+    height: 46px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    }
+    .optionwrap {
+    margin-bottom:10px;
+    }
+    .qty {
+        font-weight: bold;
+    margin: 10px 0 -7px;
+    display: block;
+}
+.optionTitle {
+font-weight:bold;
+margin:0 0 7px;
+display:block;
+text-transform:uppercase;
+}
+.colimg.ind1, .colimg.ind2, .colimg.ind3, .colimg.ind4, .colimg.ind5 {
+display:none;
 }
