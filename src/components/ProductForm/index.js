@@ -46,7 +46,9 @@ const ProductForm = ({ product }) => {
     setQuantity(target.value)
   }	
   const handleQuantityMinus = ({ target }) => {
+  if ( quantity >= 1 ) {
     setQuantity(quantity - 1)
+    }
   }
   const handleQuantityPlus = ({ target }) => {
     setQuantity(quantity + 1)

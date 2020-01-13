@@ -25,7 +25,7 @@ const Cart = () => {
       <h2>Taxes</h2>
       <p>$ {checkout.totalTax}</p>
       <br />
-      <h2>Total</h2>
+      <h2>Total test</h2>
       <p>$ {checkout.totalPrice}</p>
       <br />
       <button onClick={handleCheckout}>Check out</button>

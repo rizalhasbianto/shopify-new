@@ -60,6 +60,19 @@ padding-left:10px;
 width: 150px;
     padding: 20px;
 }
+.miniCart {
+display:none;
+position: absolute;
+    right: -31px;
+    top: 38px;
+    width: 450px;
+    background: white;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.css-5ej9tq:hover .miniCart {
+display:block;
+}
 /* FOOTER */
 .footer-top {
 display: block;
