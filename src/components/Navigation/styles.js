@@ -31,14 +31,8 @@ export const MenuLink = styled(Link)`
 `
 
 export const CartCounter = styled.span`
-  background-color: white;
-  color: #663399;
-  border-radius: 20px;
-  padding: 0 10px;
-  font-size: 1.2rem;
-  float: right;
-  margin: -10px;
-  z-index: 20;
+ color:white;
+ font-size:14px;
 `
 
 export const MenuWrap = styled.div`

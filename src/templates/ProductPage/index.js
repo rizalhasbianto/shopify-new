@@ -11,11 +11,9 @@ import {
 } from '~/utils/styles'
 import {
   ProductTitle,
-  ProductDescription,
   TwoColumnGrid,
   GridLeft,
   GridRight,
-  Price,
   Thumbnail
 } from './styles'
   
@@ -64,11 +62,6 @@ const ProductPage = ({ data }) => {
           </GridLeft>
           <GridRight>
             <ProductTitle>{product.title}</ProductTitle>
-            <Price>{price}</Price>
-            <ProductDescription
-              dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-            />
-            
             <ProductForm product={product} />
           </GridRight>
         </TwoColumnGrid>

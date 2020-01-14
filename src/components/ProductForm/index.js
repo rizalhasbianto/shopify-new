@@ -6,9 +6,14 @@ import StoreContext from '~/context/StoreContext'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
+import {
+  ProductDescription,
+  Price
+} from '~/templates/ProductPage/styles'
   
 const ProductForm = ({ product }) => {
   const {
+  description,
     options,
     variants,
     variants: [initialVariant],
@@ -104,6 +109,11 @@ const ProductForm = ({ product }) => {
   }).format(variant.price)
   return (
     <>
+    <Price>{price}</Price>
+    <ProductDescription
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+            <br/>
       {options.map(({ id, name, values }, index) => (
       <div className={"optionwrap "+ name}>
       <span className="optionTitle">{name}</span>

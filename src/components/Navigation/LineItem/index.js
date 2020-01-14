@@ -24,11 +24,12 @@ const LineItem = props => {
         <>
         {option.value}
         {(index == 0) ? ' / ' : ''}
-        
         </>
         )
       )
     : null
+    
+    
 
   const handleRemove = () => {
     removeLineItem(client, checkout.id, line_item.id)
@@ -36,7 +37,7 @@ const LineItem = props => {
 
   return (
     <Wrapper>
-      {variantImage}
+      <div className="miniimage">{variantImage}</div>
       <p>
         {line_item.title}
         {`  `}
@@ -45,9 +46,16 @@ const LineItem = props => {
           : ''}
       -
       <span className="selectedoptions"> &nbsp;{selectedOptions}</span>
-      {line_item.price}
+      {line_item.quantity}
       </p>
+                {line_item.price}
+        {`  `}
+        <div className="miniprice">
+        {line_item.variant.price === !'Default Title'
+          ? line_item.variant.price
+          : line_item.variant.price}
       <button onClick={handleRemove}>Remove</button>
+      </div>
     </Wrapper>
   )
 }
