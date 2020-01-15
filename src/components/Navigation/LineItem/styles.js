@@ -5,5 +5,4 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: start;
   flex-wrap: wrap;
-  background: blur;
 `
