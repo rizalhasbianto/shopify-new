@@ -178,11 +178,6 @@ font-size: 16px;
     background: black;
     border: 1px solid black;
     }
-    .footer-bottom {
-    margin-top: 50px;
-    border-top: 1px solid #e6e6e6;
-    padding-top: 20px;
-}
 .footer-sosmed {
 display: inline-block;
     width: 300px;
@@ -207,6 +202,35 @@ float: right;
 }
 .payment-icons {
 margin:0;
+}
+.footer-top h2 {
+display: block;
+    overflow: hidden;
+    margin-top: 0;
+    color:white;
+}
+.footer-top a, .footer-top a:visited, .footer-top li, .footer-top li:visited {
+color: #7e7e7e;
+font-size: 14px;
+}
+.footer-top img {
+width:115px;
+}
+.copy-right {
+border-top: 1px solid #1b1f23;
+    padding-top: 20px;
+}
+.copy-right a {
+color: #7e7e7e;
+font-size: 14px;
+text-decoration: none;
+}
+.copy-right a:hover {
+color:white;
+}
+.footer-top li {
+list-style:none;
+margin-bottom: 20px;
 }
 /* Product Page */
 .productOption {

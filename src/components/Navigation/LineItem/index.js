@@ -5,8 +5,9 @@ import { Wrapper } from './styles'
 
 const LineItem = props => {
   const { line_item } = props
+  
   const {
-    removeLineItem,
+    setLineItem,
     store: { client, checkout },
   } = useContext(StoreContext)
 
@@ -29,12 +30,13 @@ const LineItem = props => {
       )
     : null
     
-    
-
-  const handleRemove = () => {
-    removeLineItem(client, checkout.id, line_item.id)
+  
+ const TotalPrice = line_item.variant.price * line_item.quantity
+ 
+ const handleQuantityPlus = ({ target }) => {
+    setLineItem(line_item.quantity)
   }
-
+ 
   return (
     <Wrapper>
       <div className="miniimage">{variantImage}</div>
@@ -52,9 +54,9 @@ const LineItem = props => {
         {`  `}
         <div className="miniprice">
         {line_item.variant.price === !'Default Title'
-          ? line_item.variant.price
-          : line_item.variant.price}
-      <button onClick={handleRemove}>Remove</button>
+          ? TotalPrice
+          : TotalPrice}
+      <button onClick={handleQuantityPlus}>PLus</button>
       </div>
     </Wrapper>
   )
