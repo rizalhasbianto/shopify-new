@@ -92,7 +92,7 @@ box-sizing:border-box;
 .css-5ej9tq:hover .miniCart {
 display:block;
 }
-.miniCart p {
+.miniCart .minititle {
 width:60%;
 font-size: 13px;
     font-weight: 300;
@@ -106,8 +106,26 @@ font-size: 13px;
     color:black;
     text-align:right;
 }
-.miniprice button {
-display:none;
+.quant-mini button {
+display:inline-block;
+    width: 34px;
+    height: 29px;
+    -webkit-appearance: none;
+    margin: 0;
+    position: relative;
+    top: -1px;
+    background: #f2f2f2;	
+}
+.quant-mini input {
+width: 30px;
+    height: 27px;
+    text-align: center;
+    padding: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+    border-right: none;
+    border-left: none;
 }
 .miniCart .minisub p {
     font-weight: 600;
