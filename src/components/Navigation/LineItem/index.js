@@ -2,12 +2,12 @@ import React, { useContext } from 'react'
 
 import StoreContext from '~/context/StoreContext'
 import { Wrapper } from './styles'
-  
-  const LineItem = props => {
+
+const LineItem = props => {
   const { line_item } = props
+  
   const {
-    removeLineItem,
-    updateLineItem,
+    setLineItem,
     store: { client, checkout },
   } = useContext(StoreContext)
 
@@ -33,23 +33,13 @@ import { Wrapper } from './styles'
   
  const TotalPrice = line_item.variant.price * line_item.quantity
  
-const handleInput = ({ target }) => {
-    switch (target.name) {
-      case 'plus':
-        updateLineItem(client, checkout.id, line_item.id, line_item.quantity + 1)
-        break;
-      case 'minus':
-        updateLineItem(client, checkout.id, line_item.id, line_item.quantity - 1)
-        break;
-      default:
-        break;
-    }
+ const handleQuantityPlus = ({ target }) => {
+    setLineItem(line_item.quantity)
   }
  
   return (
     <Wrapper>
       <div className="miniimage">{variantImage}</div>
-      <div className="minititle">
       <p>
         {line_item.title}
         {`  `}
@@ -58,19 +48,15 @@ const handleInput = ({ target }) => {
           : ''}
       -
       <span className="selectedoptions"> &nbsp;{selectedOptions}</span>
+      {line_item.quantity}
       </p>
-      <div className="quant-mini">
-      <button onClick={handleInput} name='minus'>-</button>
-            <input type='number' value={line_item.quantity} disabled/>
-            <button onClick={handleInput} name='plus'>+</button>
-            </div>
-      </div>
                 {line_item.price}
         {`  `}
         <div className="miniprice">
         {line_item.variant.price === !'Default Title'
           ? TotalPrice
           : TotalPrice}
+      <button onClick={handleQuantityPlus}>PLus</button>
       </div>
     </Wrapper>
   )
