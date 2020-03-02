@@ -7,7 +7,7 @@ const LineItem = props => {
   const { line_item } = props
   
   const {
-    setLineItem,
+    updateLineItem,
     store: { client, checkout },
   } = useContext(StoreContext)
 
@@ -18,13 +18,12 @@ const LineItem = props => {
       height="60px"
     />
   ) : null
-
   const selectedOptions = line_item.variant.selectedOptions
     ? line_item.variant.selectedOptions.map(
         (option, index, arr) => (
         <>
         {option.value}
-        {(index == 0) ? ' / ' : ''}
+        {(line_item.variant.selectedOptions.length != 1) ? (index == 0 ? ' / ' : '') : ''}
         </>
         )
       )
@@ -33,9 +32,25 @@ const LineItem = props => {
   
  const TotalPrice = line_item.variant.price * line_item.quantity
  
- const handleQuantityPlus = ({ target }) => {
-    setLineItem(line_item.quantity)
+ const changeQuantity = ({ target }) => {
+ switch (target.name) {
+      case 'plus':
+      setQuantity(line_item.quantity + 1)
+        updateLineItem(client, checkout.id, line_item.id, line_item.quantity + 1)
+        break;
+      case 'minus':
+      setQuantity(line_item.quantity - 1)
+        updateLineItem(client, checkout.id, line_item.id, line_item.quantity - 1)
+        break;
+      default:
+        break;
+    }
   }
+  const [quantity, setQuantity] = React.useState(line_item.quantity);
+  const handleQuantityChange = ({ target }) => {
+  setQuantity(target.value)
+    updateLineItem(client, checkout.id, line_item.id, target.value)
+  }	
  
   return (
     <Wrapper>
@@ -48,7 +63,6 @@ const LineItem = props => {
           : ''}
       -
       <span className="selectedoptions"> &nbsp;{selectedOptions}</span>
-      {line_item.quantity}
       </p>
                 {line_item.price}
         {`  `}
@@ -56,7 +70,9 @@ const LineItem = props => {
         {line_item.variant.price === !'Default Title'
           ? TotalPrice
           : TotalPrice}
-      <button onClick={handleQuantityPlus}>PLus</button>
+          <button onClick={changeQuantity} name="minus">Minus</button>
+          <input type="number" value={quantity} onChange={handleQuantityChange} />
+      <button onClick={changeQuantity} name="plus">PLus</button>
       </div>
     </Wrapper>
   )

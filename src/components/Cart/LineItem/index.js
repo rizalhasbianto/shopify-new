@@ -6,6 +6,7 @@ import { Wrapper } from './styles'
 const LineItem = props => {
   const { line_item } = props
   const {
+  updateLineItem,
     removeLineItem,
     store: { client, checkout },
   } = useContext(StoreContext)
@@ -25,7 +26,7 @@ const LineItem = props => {
     : null
 
   const handleRemove = () => {
-    removeLineItem(client, checkout.id, line_item.id)
+    updateLineItem(client, checkout.id, line_item.id, line_item.quantity + 1)
   }
 
   return (
