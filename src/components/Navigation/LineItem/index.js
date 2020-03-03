@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 
 import StoreContext from '~/context/StoreContext'
 import { Wrapper } from './styles'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const LineItem = props => {
   const { line_item } = props
@@ -55,6 +57,7 @@ const LineItem = props => {
   return (
     <Wrapper>
       <div className="miniimage">{variantImage}</div>
+      <div className="mini_description">
       <p>
         {line_item.title}
         {`  `}
@@ -64,15 +67,18 @@ const LineItem = props => {
       -
       <span className="selectedoptions"> &nbsp;{selectedOptions}</span>
       </p>
+      <div className="mini_quantity">
+          <button onClick={changeQuantity} name="minus" className="qtyMinus"><FontAwesomeIcon icon={faMinus} /></button>
+          <input type="number" value={quantity} onChange={handleQuantityChange} className="mini_quantity_input"/>
+      <button onClick={changeQuantity} name="plus" className="qtyPlus"><FontAwesomeIcon icon={faPlus} /></button>
+      </div>
+      </div>
                 {line_item.price}
         {`  `}
         <div className="miniprice">
         {line_item.variant.price === !'Default Title'
           ? TotalPrice
           : TotalPrice}
-          <button onClick={changeQuantity} name="minus">Minus</button>
-          <input type="number" value={quantity} onChange={handleQuantityChange} />
-      <button onClick={changeQuantity} name="plus">PLus</button>
       </div>
     </Wrapper>
   )

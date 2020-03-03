@@ -17,18 +17,25 @@ const Cart = () => {
   })
 
   return (
-    <div>
+  
+    <div className="cart_all_wrap">
+    <h2>SHOPPING CART</h2>
+    <div className="cart_item_wrap">
       {line_items}
+      </div>
+      <div className="cart_total">
       <h2>Subtotal</h2>
-      <p>$ {checkout.subtotalPrice}</p>
-      <br />
-      <h2>Taxes</h2>
-      <p>$ {checkout.totalTax}</p>
-      <br />
-      <h2>Total test</h2>
       <p>$ {checkout.totalPrice}</p>
       <br />
-      <button onClick={handleCheckout}>Check out</button>
+      Or 3 interest-free payment of $37 with <div className="__affirm-logo __affirm-logo-blue __ligature__affirm_full_logo__ __processed"><span>affirm</span><span className="bullet"></span></div>
+      <a href="#">Learn more</a>
+      <span>Order will be processed in USD</span>
+      <div className="agree_wraper"><input type="Checkbox" name="agree" id="agree" /> <label for="agree">I Agree with the Terms & Conditions</label> </div>
+      <div className="checkout_button">
+      <div className="cover_button" name="cover_button"></div>
+      <button onClick={handleCheckout} className="minicheck">Check out</button>
+      </div>
+      </div>
     </div>
   )
 }
