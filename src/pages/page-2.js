@@ -1,39 +1,54 @@
 import React from "react"
-import { Link } from 'gatsby'
-import Slider from "react-slick"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
-import SEO from '~/components/seo'
-const test="test"
-export default class SlickGoToo extends React.Component {
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: []
+    };
+  }
+
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
 
   render() {
-    const settings = {
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    };
-    return (
-      <div>
-      {test}
-        <h2 onClick={e => this.slider.slickGoTo(1)}>Slick Go To</h2>
-        <Slider ref={slider => (this.slider = slider)} {...settings}>
-          <div>
-            1
-          </div>
-          <div>
-            2
-          </div>
-          <div>
-            3
-          </div>
-          <div>
-            4
-          </div>
-        </Slider>
-      </div>
-    );
+    const { error, isLoaded, items } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+       <ul>
+          {items.map(item => (
+            <li key={item.id}>
+              {item.id} {item.title}
+            </li>
+          ))}
+        </ul>
+      );
+    }
   }
 }
+export default MyComponent
