@@ -60,7 +60,7 @@ const Navigation = ({ siteTitle, menuLinks }) => {
             </ul>
           </nav>
           <div class="center_caption">
-          <span>FREE SHIPPING ON ALL ORDERS OVER $100</span>
+          <span></span>
           </div>
           <div class="right-top">
           	<div class="login">LOGIN</div>
