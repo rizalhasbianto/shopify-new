@@ -39,6 +39,7 @@ const Layout = ({ children }) => {
             </Wrapper>
             <footer>
                <div class="footer-top">
+<<<<<<< Updated upstream
                	<Wrapper>
                	<div class="grid-one-half">
                		<h3>Quick Links</h3>
@@ -52,6 +53,32 @@ const Layout = ({ children }) => {
                		</div>
                	</div>
                	</Wrapper>
+=======
+               	<FootWrapper>
+               		<Container>
+               		<ParentGrid>
+               		<Grid>
+               		<img src="https://cdn.shopify.com/s/files/1/0250/5690/3256/files/12x_wht_logo_400x.png?v=1576816976" />
+               		</Grid>
+               		<Grid>
+               			<h2>MORE INFO</h2>
+               			<li><a href="#">Contact</a></li>
+               			<li><a href="#">Privacy Policy</a></li>
+               			<li><a href="#">Refund Policy</a></li>
+               			<li><a href="#">Terms of Service</a></li>
+               		</Grid>
+               		<Grid>
+               		<h2>STAY CONNECTED</h2>
+               		<li>Keep us locked in on social</li>
+               		<Icon><FontAwesomeIcon icon={faFacebookF} /></Icon>
+               		<Icon><FontAwesomeIcon icon={faYoutube} /></Icon>
+               		<Icon><FontAwesomeIcon icon={faInstagram} /></Icon>
+               		<Icon><FontAwesomeIcon icon={faEnvelope} /></Icon>
+               		</Grid>
+               		</ParentGrid>
+               		</Container>
+               	</FootWrapper>
+>>>>>>> Stashed changes
                </div>
                <div class="footer-bottom">
                <Wrapper>
